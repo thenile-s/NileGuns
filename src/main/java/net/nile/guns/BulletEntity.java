@@ -1,14 +1,18 @@
 package net.nile.guns;
 
+import net.fabricmc.fabric.api.network.PacketContext;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Packet;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.text.LiteralText;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
@@ -24,7 +28,6 @@ public class BulletEntity extends Entity {
 
     @Override
     protected void initDataTracker() {
-       
     }
 
     @Override
@@ -44,7 +47,8 @@ public class BulletEntity extends Entity {
 
     @Override
     public void tick() {
-        
+        setVelocity(100, 0, 0);
+        setRotation(1, 0.5f);
         super.tick();
     }
 }

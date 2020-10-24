@@ -13,7 +13,7 @@ public class BulletEntityModel extends EntityModel<BulletEntity> {
         textureHeight = 2;
         textureWidth = 4;
         base = new ModelPart(this, 0, 0);
-        base.addCuboid(-.5f, 3.0f, -.5f, 1, 1, 1);
+        base.addCuboid(-0.5f,-0.0f, -0.5f, 1, 1, 1);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class BulletEntityModel extends EntityModel<BulletEntity> {
     @Override
     public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green,
             float blue, float alpha) {
-        matrices.translate(0, 1.25, 0);
+        //matrices.translate(0, 1.25, 0);
         // render cube
         base.render(matrices, vertices, light, overlay);
 
