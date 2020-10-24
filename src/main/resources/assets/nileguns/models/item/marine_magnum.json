@@ -1,0 +1,7 @@
+{
+    "parent" : "item/handheld",
+    "textures":{
+        "layer0": "nileguns:item/marine_magnum" ,
+        "layer1" : "nileguns:item/marine_magnum"
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "nileguns",
+  "version": "1.0.0",
+
+  "name": "Nile Guns",
+  "description": "Balanced, fun, original guns!",
+  "authors": [
+    "The Nile"
+  ],
+  "contact": {
+    "homepage": "https://github.com/thenile-s/NileGuns/README.md",
+    "sources": "https://github.com/thenile-s/NileGuns.git"
+  },
+
+  "license": "All rights reserved unless otherswise explicitly stated.",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.nile.guns.NileGuns"
+    ],
+    "client":[
+      "net.nile.guns.NileGunsClient"
+    ]
+  },
+  "mixins": [
+    "nileguns.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

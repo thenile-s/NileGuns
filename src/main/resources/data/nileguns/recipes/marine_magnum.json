@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "Dfi",
+        "ib "
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "b": {
+            "item": "minecraft:stone_button"
+        },
+        "D": {
+            "item": "nileguns:aquatic_gunparts"
+        },
+        "f":{
+            "item":"minecraft:cod"
+        }
+    },
+    "result": {
+        "item": "nileguns:marine_magnum",
+        "count": 1
+    }
+}

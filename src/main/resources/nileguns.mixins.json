@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.nile.guns.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "SetLeftArmAnglesMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
