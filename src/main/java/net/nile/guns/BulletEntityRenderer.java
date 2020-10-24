@@ -10,7 +10,7 @@ import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class BulletEntityRenderer extends EntityRenderer<BulletEntity> {
+public class BulletEntityRenderer extends ProjectileEntityRenderer<BulletEntity> {
 
 public static final Identifier texture = new Identifier(NileGuns.modid, "textures/entity/bullet.png");
 
@@ -36,6 +36,8 @@ protected BulletEntityModel model;
     public void render(BulletEntity entity, float yaw, float tickDelta, MatrixStack matrices,
             VertexConsumerProvider vertexConsumers, int light) {
         model.render(matrices, vertexConsumers.getBuffer(model.getLayer(getTexture(entity))), light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
-        super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
+        if (this.hasLabel(entity)) {
+            this.renderLabelIfPresent(entity, entity.getDisplayName(), matrices, vertexConsumers, light);
+        }
     }
 }

@@ -1,0 +1,9 @@
+{
+    "gunshot": {
+        "subtitle": "subtitles.modid.gunshot",
+      "sounds": [
+        "nileguns:gunshot"
+      ]
+    }
+}
+

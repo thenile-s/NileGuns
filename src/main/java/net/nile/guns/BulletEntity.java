@@ -1,54 +1,34 @@
 package net.nile.guns;
 
-import net.fabricmc.fabric.api.network.PacketContext;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Packet;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
-import net.minecraft.text.LiteralText;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
-public class BulletEntity extends Entity {
+public class BulletEntity extends ArrowEntity {
 
-    public BulletEntity(EntityType<?> type, World world) {
+    public BulletEntity(EntityType<? extends ArrowEntity> type, World world) {
         super(type, world);
         //ArrowEntity
     }
 
+	public BulletEntity(World world, PlayerEntity user) {
+        super(NileGuns.BULLET, world);
+        setOwner(user);
+    }
+    
     @Override
-    protected void initDataTracker() {
+    protected void onBlockHit(BlockHitResult blockHitResult) {
+        //this.remove();
+        super.onBlockHit(blockHitResult);
     }
 
     @Override
-    protected void readCustomDataFromTag(CompoundTag tag) {
-        
-    }
-
-    @Override
-    protected void writeCustomDataToTag(CompoundTag tag) {
-        
-    }
-
-    @Override
-    public Packet<?> createSpawnPacket() {
-        return new EntitySpawnS2CPacket(this);
-    }
-
-    @Override
-    public void tick() {
-        setVelocity(100, 0, 0);
-        setRotation(1, 0.5f);
-        super.tick();
+    protected void onEntityHit(EntityHitResult entityHitResult) {
+        //entityHitResult.getEntity().damage(DamageSource.arrow(this, getOwner()), (float)getDamage());
+        NileGuns.logger.info("Entity hit " + entityHitResult.getEntity().getEntityName());
+        super.onEntityHit(entityHitResult);
     }
 }

@@ -7,12 +7,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
-import net.fabricmc.fabric.api.network.PacketContext;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 @Environment(EnvType.CLIENT)
 public class NileGunsClient implements ClientModInitializer {
@@ -22,8 +16,10 @@ public class NileGunsClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(NileGuns.BULLET, (dispatcher, context) -> {
             return new BulletEntityRenderer(dispatcher);
         });
-        //I couldn't get the client package registry to register my handler, perhaps because of
-        //I provided and invalid Identifier?
+        
+        //I couldn't get the client package registry to register my handler, perhaps because
+        //I provided an invalid Identifier?
+        //Using a mixin instead
         //ClientSidePacketRegistry.INSTANCE.register(new Identifier(NileGuns.modid), NileGunsClient::spawnEntity);
     }
 

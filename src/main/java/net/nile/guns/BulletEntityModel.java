@@ -13,7 +13,7 @@ public class BulletEntityModel extends EntityModel<BulletEntity> {
         textureHeight = 2;
         textureWidth = 4;
         base = new ModelPart(this, 0, 0);
-        base.addCuboid(-0.5f,-0.0f, -0.5f, 1, 1, 1);
+        base.addCuboid(-0.5f,3.75f, -0.5f, 1, 1, 1);
     }
 
     @Override

@@ -4,7 +4,7 @@
   "package": "net.nile.guns.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "SetLeftArmAnglesMixin"
+    "SetArmAnglesMixin"
   ],
   "client":[
     "ClientPlayNetworkHandlerMixin"

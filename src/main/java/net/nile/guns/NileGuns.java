@@ -10,14 +10,18 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class NileGuns implements ModInitializer {
+
     public static final Logger logger = LogManager.getLogger();
 
     public static final String modid = "nileguns";
+
+    private static final Identifier GUNSHOTID = new Identifier(modid, "gunshot");
 
     public static MarineMagnumItem MARINE_MAGNUM = new MarineMagnumItem(new Item.Settings().maxCount(1).group(ItemGroup.COMBAT));
 
@@ -26,13 +30,15 @@ public class NileGuns implements ModInitializer {
         public static final EntityType<BulletEntity> BULLET = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(modid, "bullet"),
-            FabricEntityTypeBuilder.<BulletEntity>create(SpawnGroup.MISC, BulletEntity::new).dimensions(EntityDimensions.fixed(1/16f, 1/16f)).build());
+            FabricEntityTypeBuilder.<BulletEntity>create(SpawnGroup.MISC, BulletEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build());
     
+    public static final SoundEvent GUNSHOT = new SoundEvent(GUNSHOTID);
 
     @Override
     public void onInitialize() {
         
         Registry.register(Registry.ITEM, new Identifier(modid, "marine_magnum"), MARINE_MAGNUM);
         Registry.register(Registry.ITEM, new Identifier(modid, "aquatic_gunparts"), FISH_GUNPARTS);
+        Registry.register(Registry.SOUND_EVENT, GUNSHOTID, GUNSHOT);
     }
 }
