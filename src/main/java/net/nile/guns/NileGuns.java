@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -35,6 +34,5 @@ public class NileGuns implements ModInitializer {
         
         Registry.register(Registry.ITEM, new Identifier(modid, "marine_magnum"), MARINE_MAGNUM);
         Registry.register(Registry.ITEM, new Identifier(modid, "aquatic_gunparts"), FISH_GUNPARTS);
-        FabricDefaultAttributeRegistry.register(BULLET,BulletEntity.createMobAttributes());
     }
 }
