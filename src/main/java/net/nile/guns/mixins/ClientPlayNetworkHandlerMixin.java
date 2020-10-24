@@ -11,6 +11,7 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.math.Vec3d;
 import net.nile.guns.BulletEntity;
@@ -27,11 +28,17 @@ public class ClientPlayNetworkHandlerMixin {
     )
     private void onEntitySpawn(EntitySpawnS2CPacket packet, CallbackInfo ci) {
 		Entity entity = null;
+		NileGuns.logger.info("bullet arrow 0");
+		NileGuns.logger.info("Entity type idd " + packet.getEntityTypeId().getName());
+		//NileGuns.logger.info("Entity type id " + NileGuns.BULLET);
 		if (packet.getEntityTypeId() == NileGuns.BULLET) {
-            entity = new BulletEntity(NileGuns.BULLET, world);
+			entity = new ArrowEntity(NileGuns.BULLET, world);
+			NileGuns.logger.info("bullet arrow 1");
 		} // we can replicate this one here for all our other entities
 		// entity would be null here when the type was not one for us
 		if (entity != null) {
+			NileGuns.logger.info("bullet arrow 2");
+
             double x,y,z; x = packet.getX(); y = packet.getY(); z = packet.getZ();
             entity .setPos(x, y, z);
 			int entityId = packet.getId();

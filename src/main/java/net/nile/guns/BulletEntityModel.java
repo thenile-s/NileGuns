@@ -4,8 +4,9 @@ import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.projectile.ArrowEntity;
 
-public class BulletEntityModel extends EntityModel<BulletEntity> {
+public class BulletEntityModel extends EntityModel<ArrowEntity> {
 
     private final ModelPart base;
 
@@ -17,7 +18,7 @@ public class BulletEntityModel extends EntityModel<BulletEntity> {
     }
 
     @Override
-    public void setAngles(BulletEntity entity, float limbAngle, float limbDistance, float animationProgress,
+    public void setAngles(ArrowEntity entity, float limbAngle, float limbDistance, float animationProgress,
             float headYaw, float headPitch) {
 
     }

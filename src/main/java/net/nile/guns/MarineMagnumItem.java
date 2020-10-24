@@ -1,6 +1,8 @@
 package net.nile.guns;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -27,8 +29,8 @@ public class MarineMagnumItem extends Item {
         if(!user.getItemCooldownManager().isCoolingDown(this))
         {
             user.getItemCooldownManager().set(this, bulletCooldownTicks);
-            BulletEntity arrow = new BulletEntity(world, user);
-            // arrow.setCustomNameVisible(true);
+            ArrowEntity arrow = new ArrowEntity(NileGuns.BULLET, world);
+            // arrow.setCustomNameVisible(true); EntityType.ARROW
             // arrow.setCustomName(new LiteralText("Bullet :)"));
             Vec3d pos = user.getPos();
             arrow.setPos(pos.x, pos.y + user.getEyeHeight(user.getPose()), pos.z);

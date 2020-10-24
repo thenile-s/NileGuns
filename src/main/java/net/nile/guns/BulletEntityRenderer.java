@@ -8,9 +8,10 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.util.Identifier;
 
-public class BulletEntityRenderer extends ProjectileEntityRenderer<BulletEntity> {
+public class BulletEntityRenderer extends ProjectileEntityRenderer<ArrowEntity> {
 
 public static final Identifier texture = new Identifier(NileGuns.modid, "textures/entity/bullet.png");
 
@@ -28,12 +29,12 @@ protected BulletEntityModel model;
     }
 
     @Override
-    public Identifier getTexture(BulletEntity entity) {
+    public Identifier getTexture(ArrowEntity entity) {
         return texture;
     }
 
     @Override
-    public void render(BulletEntity entity, float yaw, float tickDelta, MatrixStack matrices,
+    public void render(ArrowEntity entity, float yaw, float tickDelta, MatrixStack matrices,
             VertexConsumerProvider vertexConsumers, int light) {
         model.render(matrices, vertexConsumers.getBuffer(model.getLayer(getTexture(entity))), light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
         if (this.hasLabel(entity)) {

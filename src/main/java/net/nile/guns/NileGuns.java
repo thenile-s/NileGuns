@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.SoundEvent;
@@ -23,14 +24,16 @@ public class NileGuns implements ModInitializer {
 
     private static final Identifier GUNSHOTID = new Identifier(modid, "gunshot");
 
-    public static MarineMagnumItem MARINE_MAGNUM = new MarineMagnumItem(new Item.Settings().maxCount(1).group(ItemGroup.COMBAT));
+    public static MarineMagnumItem MARINE_MAGNUM = new MarineMagnumItem(
+            new Item.Settings().maxCount(1).group(ItemGroup.COMBAT));
 
-    public static Item FISH_GUNPARTS = new Item(new Item.Settings().maxCount(64).rarity(Rarity.UNCOMMON).group(ItemGroup.MISC));
+    public static Item FISH_GUNPARTS = new Item(
+            new Item.Settings().maxCount(64).rarity(Rarity.UNCOMMON).group(ItemGroup.MISC));
 
-        public static final EntityType<BulletEntity> BULLET = Registry.register(
-            Registry.ENTITY_TYPE,
+    public static final EntityType<ArrowEntity> BULLET = Registry.register(Registry.ENTITY_TYPE,
             new Identifier(modid, "bullet"),
-            FabricEntityTypeBuilder.<BulletEntity>create(SpawnGroup.MISC, BulletEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build());
+            FabricEntityTypeBuilder.<ArrowEntity>create(SpawnGroup.MISC, ArrowEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build());
     
     public static final SoundEvent GUNSHOT = new SoundEvent(GUNSHOTID);
 
