@@ -1,20 +1,18 @@
 package net.nile.guns;
 
-import java.io.IOException;
-
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 
 @Environment(EnvType.CLIENT)
 public class NileGunsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.INSTANCE.register(NileGuns.BULLET, (dispatcher, context) -> {
-            return new BulletEntityRenderer(dispatcher);
+
+        EntityRendererRegistry.INSTANCE.register(NileGuns.ARROW_BULLET, (dispatcher, context) -> {
+            return new ArrowBulletEntityRenderer(dispatcher);
         });
         
         //I couldn't get the client package registry to register my handler, perhaps because

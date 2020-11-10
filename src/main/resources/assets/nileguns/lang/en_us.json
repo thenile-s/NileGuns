@@ -1,5 +1,6 @@
 {
-    "item.nileguns.marine_magnum" : "Marine Magnum",
-    "item.nileguns.aquatic_gunparts" : "Aquatic Gun Part",
-    "subtitle.nileguns.gunshot" : "Gun Shot"
+    "item.nileguns.marine_magnum": "Marine Magnum",
+    "item.nileguns.aquatic_gunparts": "Aquatic Gun Part",
+    "subtitle.nileguns.gunshot": "Gun Shot",
+    "item.nileguns.arrow_bullet": "Bullet"
 }

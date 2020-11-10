@@ -1,31 +1,28 @@
 package net.nile.guns;
 
 import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.util.Identifier;
 
-public class BulletEntityRenderer extends ProjectileEntityRenderer<ArrowEntity> {
+public class ArrowBulletEntityRenderer extends EntityRenderer<ArrowEntity> {
 
 public static final Identifier texture = new Identifier(NileGuns.modid, "textures/entity/bullet.png");
 
-protected BulletEntityModel model;
+protected ArrowBulletEntityModel model;
 
-    public BulletEntityRenderer(EntityRenderDispatcher entityRenderDispatcher, BulletEntityModel entityModel) {
+    public ArrowBulletEntityRenderer(EntityRenderDispatcher entityRenderDispatcher, ArrowBulletEntityModel entityModel) {
         super(entityRenderDispatcher);
         model = entityModel;
     }
 
-    public BulletEntityRenderer(EntityRenderDispatcher entityRenderDispatcher)
+    public ArrowBulletEntityRenderer(EntityRenderDispatcher entityRenderDispatcher)
     {
         super(entityRenderDispatcher);
-        model = new BulletEntityModel();
+        model = new ArrowBulletEntityModel();
     }
 
     @Override

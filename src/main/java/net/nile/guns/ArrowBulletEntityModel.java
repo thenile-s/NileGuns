@@ -6,15 +6,15 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.projectile.ArrowEntity;
 
-public class BulletEntityModel extends EntityModel<ArrowEntity> {
+public class ArrowBulletEntityModel extends EntityModel<ArrowEntity> {
 
     private final ModelPart base;
 
-    public BulletEntityModel(){
+    public ArrowBulletEntityModel(){
         textureHeight = 2;
         textureWidth = 4;
         base = new ModelPart(this, 0, 0);
-        base.addCuboid(-0.5f,3.75f, -0.5f, 1, 1, 1);
+        base.addCuboid(-0.5f,4f, -0.5f, 1, 1, 1);
     }
 
     @Override
